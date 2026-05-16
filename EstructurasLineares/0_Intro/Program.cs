@@ -14,6 +14,8 @@ Console.WriteLine($"Capacidad inicial: {plancha.Length} tacos\n");
 plancha[0] = "Suadero";
 plancha[1] = "Pastor";
 plancha[2] = "Tripa";
+plancha[3] = "Campechana";
+Plancha[4] = "Pirata";
 
 // 3. RECORRER CON FOR = checar toda la plancha
 Console.WriteLine("Revisando la plancha:");
