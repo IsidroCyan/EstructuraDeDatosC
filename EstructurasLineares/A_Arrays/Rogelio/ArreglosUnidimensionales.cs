@@ -35,3 +35,4 @@ let nombres = ["Fiona", "Fredy", "Cosmo"];
 console.log(nombres);
 nombres[2] = "Fredo";
 console.log(nombres);
+*/
