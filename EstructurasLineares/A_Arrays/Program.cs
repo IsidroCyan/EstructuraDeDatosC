@@ -1,4 +1,4 @@
-﻿﻿CuentaBancaria CuentaAhorro = new CuentaBancaria (5);
+﻿﻿﻿CuentaBancaria CuentaAhorro = new CuentaBancaria (5);
     //*llamar el metodo, colocando el objeto y después el metodo
  //*adentro del parentesis, cuando llamamos la funcion pasamos a un argumento
 
