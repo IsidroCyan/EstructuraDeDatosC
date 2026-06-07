@@ -1,3 +1,5 @@
+using System.Numerics;
+
 /// <summary>
 /// Clase didáctica que implementa una estructura basada en un arreglo (array)
 /// para comprender cómo funcionan internamente algunas colecciones de C#.
@@ -8,7 +10,7 @@
 /// El propósito es que los alumnos implementen manualmente operaciones
 /// comunes como búsqueda, ordenamiento, promedio, etc.
 /// </summary>
-public class MyArray
+public class CuentaBancaria
 {
     /// <summary>
     /// Arreglo interno donde se almacenan los datos.
@@ -29,9 +31,9 @@ public class MyArray
     /// <param name="tamaño">
     /// Número máximo de elementos que podrá almacenar el arreglo.
     /// </param>
-    public MyArray(int tamaño)
+    public CuentaBancaria(int tamañoCuenta)
     {
-        data = new int[tamaño];
+        data = new int[tamañoCuenta];
         Console.WriteLine("Yo fui ejecutado desde el constructor");
     }
 
@@ -57,7 +59,20 @@ public class MyArray
     /// </summary>
     public void Average()
     {
-        Console.WriteLine($"El tamaño de data es {data.Length}");
+        Console.WriteLine($"El tamaño de data es: {data.Length}");
+        if (data.Length == 0)
+        {
+            Console.WriteLine("El tamaño del arrreglo debe ser mayor a 0");
+            return;
+        }
+        decimal sumaTotal=0m;
+        for (int indice=0; indice<data.Length; indice++)
+        {
+            sumaTotal += data[indice];
+        }
+        decimal promedio = sumaTotal/data.Length;
+        Console.WriteLine($"el promedio es: {promedio}"); 
+       
     }
 
     /// <summary>
@@ -69,7 +84,7 @@ public class MyArray
     /// </summary>
     private void QuickSort()
     {
-
+        
     }
 
     /// <summary>
@@ -83,11 +98,44 @@ public class MyArray
     /// <param name="datoUsuario">
     /// Valor entero que se desea almacenar.
     /// </param>
-    public void Agregar(int datoUsuario)
+    public void AgregarMonto(int datoUsuario)
     {
         if (indice < data.Length)
         {
             data[indice++] = datoUsuario;
+        }
+    }
+
+    public void EliminarMonto(int IndiceDelMonto)
+    {
+        if (IndiceDelMonto < indice)
+        {
+            data[IndiceDelMonto] = 0;
+        }
+        
+    }
+    public void EliminarMonto(decimal EliminarCantidad)
+    {
+       bool seEncontro = false; 
+
+        for(int i=0; i<data.Length; i++)
+        {
+            if(data[i] == EliminarCantidad)
+            {
+                data[i] = 0;
+                seEncontro = true;
+               // break;
+            }
+        }
+
+        if (seEncontro)
+        {
+        Console.WriteLine($"La cantidad buscada fue: {EliminarCantidad} ");
+            
+        }
+        else
+        {
+            Console.WriteLine($"La cantidad {EliminarCantidad} no fue encontrada");
         }
     }
 }

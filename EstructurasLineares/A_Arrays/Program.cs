@@ -1,9 +1,20 @@
-﻿MyArray ArrayWraper = new MyArray(5); 
-ArrayWraper.Agregar(10);
-ArrayWraper.Agregar(5);
-ArrayWraper.Agregar(12);
-ArrayWraper.Agregar(12);
-ArrayWraper.Agregar(12);
-ArrayWraper.Agregar(24);
+﻿CuentaBancaria CuentaAhorro = new CuentaBancaria(5); 
+//CuentaAhorro.Average();
 
-ArrayWraper.mostrardatos();
+CuentaAhorro.AgregarMonto(55);
+CuentaAhorro.AgregarMonto(10);
+CuentaAhorro.AgregarMonto(32);
+CuentaAhorro.AgregarMonto(25);
+CuentaAhorro.AgregarMonto(70);
+
+
+Console.WriteLine("");
+CuentaAhorro.MostrarDatos();
+
+Console.WriteLine("");
+CuentaAhorro.Average();
+Console.WriteLine("");
+
+CuentaAhorro.EliminarMonto(2);
+Console.WriteLine("");
+CuentaAhorro.MostrarDatos();
