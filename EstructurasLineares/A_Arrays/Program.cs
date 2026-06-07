@@ -1,20 +1,16 @@
-﻿CuentaBancaria CuentaAhorro = new CuentaBancaria(5); 
-//CuentaAhorro.Average();
-
-CuentaAhorro.AgregarMonto(55);
-CuentaAhorro.AgregarMonto(10);
-CuentaAhorro.AgregarMonto(32);
-CuentaAhorro.AgregarMonto(25);
-CuentaAhorro.AgregarMonto(70);
+﻿﻿﻿CuentaBancaria CuentaAhorro = new CuentaBancaria (5);
+    //*llamar el metodo, colocando el objeto y después el metodo
+ //*adentro del parentesis, cuando llamamos la funcion pasamos a un argumento
 
 
-Console.WriteLine("");
-CuentaAhorro.MostrarDatos();
-
-Console.WriteLine("");
+CuentaAhorro.AgregarMonto(529);
+CuentaAhorro.AgregarMonto(800);
+CuentaAhorro.AgregarMonto(498);
+CuentaAhorro.AgregarMonto(901);
+CuentaAhorro.AgregarMonto(1000);
+//[10,50,100,50,30]
+//CuentaAhorro.EliminarMonto(2)
+//[10,50,0,50,30]
 CuentaAhorro.Average();
-Console.WriteLine("");
-
 CuentaAhorro.EliminarMonto(2);
-Console.WriteLine("");
-CuentaAhorro.MostrarDatos();
+CuentaAhorro.mostrardatos();
