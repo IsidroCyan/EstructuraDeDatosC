@@ -1,5 +1,5 @@
 using System.Numerics;
-
+namespace Liz; 
 /// <summary>
 /// Clase didáctica que implementa una estructura basada en un arreglo (array)
 /// para comprender cómo funcionan internamente algunas colecciones de C#.
@@ -59,7 +59,6 @@ public class CuentaBancaria
     /// </summary>
     public void Average()
     {
-        Console.WriteLine($"El tamaño de data es: {data.Length}");
         if (data.Length == 0)
         {
             Console.WriteLine("El tamaño del arrreglo debe ser mayor a 0");
@@ -100,18 +99,37 @@ public class CuentaBancaria
     /// </param>
     public void AgregarMonto(int datoUsuario)
     {
-        if (indice < data.Length)
+       /*if (indice < data.Length)
         {
             data[indice++] = datoUsuario;
+        }*/
+       // int indiceDisponible= -1; 
+        for(int i=0; i<data.Length; i++)
+        {
+            if (data[i] == 0)
+            {
+                //indiceDisponible =i;
+                data[i] = datoUsuario; 
+                return;
+            }
+            // if (indiceDisponible != -1)
+            // {
+                
+            // }
         }
     }
 
-    public void EliminarMonto(int IndiceDelMonto)
+    public void EliminarMontoPorIndice(int IndiceDelMonto)
     {
+        Console.WriteLine($"indice del monto: {IndiceDelMonto}");
+        Console.WriteLine($"indice: {indice}");
         if (IndiceDelMonto < indice)
         {
             data[IndiceDelMonto] = 0;
         }
+       // indice--;
+       
+        
         
     }
     public void EliminarMonto(decimal EliminarCantidad)
@@ -124,7 +142,9 @@ public class CuentaBancaria
             {
                 data[i] = 0;
                 seEncontro = true;
-               // break;
+               /* 
+               detiene el if y hace que solo se cambie el primer dato de cumpla con la condicion
+               break; */
             }
         }
 
@@ -137,5 +157,42 @@ public class CuentaBancaria
         {
             Console.WriteLine($"La cantidad {EliminarCantidad} no fue encontrada");
         }
+    }
+
+    public int Buscar(int ElementoBusqueda)
+    {  
+      //[10,20,30,50]  
+      for(int i=0; i<data.Length; i++)
+        {
+            if(data[i] == ElementoBusqueda)
+            {
+                return i;
+            }
+            
+        }
+        return -1; 
+    }
+
+    public void capacidad()
+    {
+         Console.WriteLine($"El tamaño de data es: {data.Length}");
+    }
+
+    public void tamaño()
+    {   
+        int tamaño = 0;
+        for (int i=0; i<data.Length; i++)
+        {
+            if (data[i] != 0)
+            {
+                tamaño++;
+            }
+        }
+        Console.WriteLine(tamaño); 
+    }
+
+    public void mostrarIndice()
+    {
+        Console.WriteLine(indice); 
     }
 }
