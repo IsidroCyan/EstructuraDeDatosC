@@ -1,0 +1,45 @@
+/*
+Console.WriteLine(habitoComer.Descripcion); 
+//Console.WriteLine(habitoComer.Descripcion); 
+habitoComer.CompletarHabito();
+
+Habitos habitoLectura = new Habitos("Leer", new TimeSpan(0,20,0), "Leer un poco antes de dormir");
+Console.WriteLine(habitoLectura.Descripcion);
+habitoLectura.CompletarHabito();
+
+Habitos habitoDescanso = new Habitos("Dormir", new TimeSpan(8,0,0), "Dormir 8 horas diarias"); 
+Console.WriteLine(habitoDescanso.Descripcion);
+habitoDescanso.CompletarHabito(); 
+*/
+
+Tracker administradorHabitos = new Tracker(2); 
+//administradorHabitos.MostrarDatos();
+//administradorHabitos.AgregarHabito(habitoDescanso);
+//administradorHabitos.AgregarHabito(new Habitos("Ejercicio", new TimeSpan(1,0,0), "Hacer ejercicio una hora al dia"));
+//administradorHabitos.MostrarDatos();
+
+Console.WriteLine("Agrega un nombre corto para el habito");
+string nombreHabito = Console.ReadLine();
+Console.WriteLine("Agrega un tiempo separado por comas. Comienza por Hora, Minutos");
+//Almacenar hora y minutos
+int[] tiempos = new int[2];
+string[] data= Console.ReadLine().Split(",");
+int index=0;
+foreach(string dato in data)
+{
+    tiempos[index]=Convert.ToInt32(dato);
+    index++;
+    
+}
+Console.WriteLine("Agrega una descripcion para el habito");
+string descripcionHabito = Console.ReadLine();
+
+Habitos nuevoHabito = new Habitos (nombreHabito, new TimeSpan (tiempos[0],tiempos[1],0), descripcionHabito); 
+Habitos habitoComer = new Habitos("Desayunar", new TimeSpan(0,30,0) , "Desayunar algo ligero antes de empezar las actividades del dia"); 
+
+administradorHabitos.AgregarHabito(nuevoHabito); 
+administradorHabitos.AgregarHabito(habitoComer); 
+
+administradorHabitos.MostrarDatos(); 
+
+administradorHabitos.EliminarHabitoPorIndice(1);

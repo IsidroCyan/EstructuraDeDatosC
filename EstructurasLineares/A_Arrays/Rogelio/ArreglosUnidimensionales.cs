@@ -42,6 +42,14 @@ public class Papu
 
 
 
+<<<<<<< HEAD
+Mini ejercicio:
+let nombres = ["Fiona", "Fredy", "Cosmo"];
+console.log(nombres);
+nombres[2] = "Fredo";
+console.log(nombres);
+*/
+=======
         Mini ejercicio:
         let nombres = ["Fiona", "Fredy", "Cosmo"];
         console.log(nombres);
@@ -72,3 +80,4 @@ public class Papu
         }
     }
 }
+>>>>>>> 52fe59f38f3a3d97ac33388e6eef2625356da244

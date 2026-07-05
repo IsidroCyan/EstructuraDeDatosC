@@ -1,5 +1,6 @@
 using System.Numerics;
-namespace LizCuentaBancaria;
+namespace Liz;
+
 /// <summary>
 /// Clase didáctica que implementa una estructura basada en un arreglo (array)
 /// para comprender cómo funcionan internamente algunas colecciones de C#.
@@ -22,7 +23,7 @@ public class CuentaBancaria
     /// Indica la siguiente posición disponible dentro del arreglo.
     /// También representa la cantidad de elementos agregados.
     /// </summary>
-    private int indice = 0;
+    private int contadorCajitasOcupadas = 0;
 
     /// <summary>
     /// Constructor de la clase.
@@ -59,20 +60,19 @@ public class CuentaBancaria
     /// </summary>
     public void Average()
     {
-        Console.WriteLine($"El tamaño de data es: {data.Length}");
         if (data.Length == 0)
         {
             Console.WriteLine("El tamaño del arrreglo debe ser mayor a 0");
             return;
         }
-        decimal sumaTotal=0m;
-        for (int indice=0; indice<data.Length; indice++)
+        decimal sumaTotal = 0m;
+        for (int indice = 0; indice < data.Length; indice++)
         {
             sumaTotal += data[indice];
         }
-        decimal promedio = sumaTotal/data.Length;
-        Console.WriteLine($"el promedio es: {promedio}"); 
-       
+        decimal promedio = sumaTotal / data.Length;
+        Console.WriteLine($"el promedio es: {promedio}");
+
     }
 
     /// <summary>
@@ -84,7 +84,7 @@ public class CuentaBancaria
     /// </summary>
     private void QuickSort()
     {
-        
+
     }
 
     /// <summary>
@@ -100,42 +100,142 @@ public class CuentaBancaria
     /// </param>
     public void AgregarMonto(int datoUsuario)
     {
-        if (indice < data.Length)
+        /*if (indice < data.Length)
+         {
+             data[indice++] = datoUsuario;
+         }*/
+        // int indiceDisponible= -1; 
+        for (int i = 0; i < data.Length; i++)
         {
-            data[indice++] = datoUsuario;
+            if (data[i] == 0)
+            {
+                //indiceDisponible =i;
+                data[i] = datoUsuario;
+                contadorCajitasOcupadas++;
+                return;
+            }
+            // if (indiceDisponible != -1)
+            // {
+
+            // }
         }
     }
 
-    public void EliminarMonto(int IndiceDelMonto)
+    public void EliminarMontoPorIndice(int IndiceDelMonto)
     {
-        if (IndiceDelMonto < indice)
+        if (IndiceDelMonto >= data.Length)
         {
-            data[IndiceDelMonto] = 0;
+            Console.WriteLine("Cajita no existe");
+            return;
         }
-        
+
+        if (data[IndiceDelMonto] == 0)
+        {
+            Console.WriteLine("Cajita ya estaba desocupada");
+            return;
+        }
+
+        data[IndiceDelMonto] = 0;
+        contadorCajitasOcupadas--; //ex indice
     }
+
     public void EliminarMonto(decimal EliminarCantidad)
     {
-       bool seEncontro = false; 
+        bool seEncontro = false;
 
-        for(int i=0; i<data.Length; i++)
+        for (int i = 0; i < data.Length; i++)
         {
-            if(data[i] == EliminarCantidad)
+            if (data[i] == EliminarCantidad)
             {
                 data[i] = 0;
                 seEncontro = true;
-               // break;
+                /* 
+                detiene el if y hace que solo se cambie el primer dato de cumpla con la condicion
+                break; */
             }
         }
 
         if (seEncontro)
         {
-        Console.WriteLine($"La cantidad buscada fue: {EliminarCantidad} ");
-            
+            Console.WriteLine($"La cantidad buscada fue: {EliminarCantidad} ");
+
         }
         else
         {
             Console.WriteLine($"La cantidad {EliminarCantidad} no fue encontrada");
         }
+    }
+
+    public int Buscar(int ElementoBusqueda)
+    {
+        //[10,20,30,50]  
+        for (int i = 0; i < data.Length; i++)
+        {
+            if (data[i] == ElementoBusqueda)
+            {
+                return i;
+            }
+
+        }
+        return -1;
+    }
+
+    public void capacidad()
+    {
+        Console.WriteLine($"El tamaño de data es: {data.Length}");
+    }
+
+    public void tamaño()
+    {
+        int tamaño = 0;
+        for (int i = 0; i < data.Length; i++)
+        {
+            if (data[i] != 0)
+            {
+                tamaño++;
+            }
+        }
+        Console.WriteLine(tamaño);
+    }
+
+    public void mostrarIndice()
+    {
+        Console.WriteLine(contadorCajitasOcupadas);
+    }
+
+    public bool is_vacio()
+    {
+        for (int i = 0; i < data.Length; i++)
+        {
+            if (data[i] != 0)
+            {
+                Console.WriteLine("No esta vacia");
+                return false;
+
+            }
+
+        }
+        return true;
+    }
+    public int pop()
+    {
+        if (!is_vacio())
+        {
+            int posicionFinal = data.Length - 1;
+            while (data[posicionFinal] == 0)
+            {
+                posicionFinal--;
+            }
+
+           
+                int datoGuardado = data[posicionFinal];
+                data[posicionFinal] = 0;
+                return datoGuardado;
+            
+        }
+
+
+        return -1;
+
     }
 }
