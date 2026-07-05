@@ -1,11 +1,11 @@
 public class Habitos
 {
-    public string TituloHabito;
-    public DateOnly FechaDeCreacion;
-    public string Descripcion;
-    public TimeSpan TiempoInvertido; 
-    public TimeSpan TiempoMinimo;
-    public bool IsRealizado; 
+    private string TituloHabito;
+    private DateOnly FechaDeCreacion;
+    private string Descripcion;
+    private TimeSpan TiempoInvertido; 
+    private TimeSpan TiempoMinimo;
+    private bool IsRealizado; 
 
     public Habitos(string TituloHabito, TimeSpan TiempoMinimo, string Descripcion)
     {

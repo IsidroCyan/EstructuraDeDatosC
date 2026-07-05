@@ -1,5 +1,5 @@
 using System.Timers;
-
+namespace ClaseRogelio;
 public class CuentaBancaria
 {
     private int[] data;
