@@ -1,5 +1,5 @@
 using System.Numerics;
-
+namespace LizCuentaBancaria;
 /// <summary>
 /// Clase didáctica que implementa una estructura basada en un arreglo (array)
 /// para comprender cómo funcionan internamente algunas colecciones de C#.

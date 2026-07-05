@@ -72,5 +72,40 @@ public class CuentaBancaria
          Console.WriteLine("Yo soy el EliminarCantidad");
     }
 
+    public int Buscar(int ElementoBusqueda)
+    {
+      //[10,20,30,50]
+      for (int i=0; i<data.Length; i++) //* con el for recorremos los elementos del indice, 
+        {
+            if(data[i] == ElementoBusqueda) //*si en la posicion i de nuestro arreglo data hay que es igual al elemento busqueda, return (te saldras de la función)
+            {
+                  return i;
+            } 
+          
+            
+        }
+        return -1;
+    }
 
+public void capacidad()
+    {
+        Console.WriteLine($"El tamaño de data es: {data.Length}");
+    }
+    public void tamaño()
+    {
+        int tamaño = 0;
+        for(int i = 0; i < data.Length; i++)
+        {
+            if( data[i] != 0)
+            {
+                tamaño++;
+            }
+        } 
+        Console.WriteLine($"El tamaño es {tamaño}");
+    }
+
+    public void mostrarIndice()
+    {
+        Console.WriteLine(indice);
+    }
 }
