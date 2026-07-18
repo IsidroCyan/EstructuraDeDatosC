@@ -33,20 +33,24 @@ public class Tracker
     /// </summary>
     public void MostrarDatos()
     {
-        string Info = "";
+        string Info = "";  //se inicializa como vacia con comillas al ser un string 
 
-        foreach (Habitos x in data)
+        foreach (Habitos x in data)  //recorre el arreglo 
         {
-            if (x != null)
+            if (x != null)  //si x es distinta a null, entonces: 
             {
-                Info += $"Titulo: {x.TituloHabito} Descripcion= {x.Descripcion} \n";
+                Info += $"Titulo: {x.Titulo} Descripcion= {x.Descripcions} \n";  //toma los datos que no sean nulos y los almacena en info
             }
 
         }
-        Console.Clear();
-        Console.WriteLine(Info);
+        //Console.Clear(); 
+        Console.WriteLine(Info); //los muestra
 
     }
+    
+
+    //crear una funcion que busque solo 1 habito, el que coincida con el que busca el usuario
+    
 
     public void AgregarHabito(Habitos datoUsuario)
     {
@@ -61,30 +65,82 @@ public class Tracker
 
         }
     }
-    /*
+    
     public void capacidad()
     {
          Console.WriteLine($"El tamaño de data es: {data.Length}");
     }
 
-    public void EliminarHabitoPorIndice(int IndiceDelHabito)
+    public void EliminarHabitoPorIndice(int indiceDelHabito)
     {
-        if (IndiceDelHabito >= data.Length)
+        if (data == null)
+        {
+            return; 
+        }
+
+        if (indiceDelHabito >= data.Length)
         {
             Console.WriteLine("Indice Invalido");
             return;
         }
 
-        if (data[IndiceDelHabito] == null)
+        if (data[indiceDelHabito] == null)
         {
-            Console.WriteLine("Cajita ya estaba desocupada");
+            Console.WriteLine("Este espacio ya estaba desocupado");
             return;
         }
 
-        data[IndiceDelHabito] = null;
+        data[indiceDelHabito] = null;
         espaciosOcupados--; 
     }
-    */
+
+    public void Buscar(string BusquedaTitulo)
+    {
+        for(int i=0; i<data.Length; i++)
+        {   
+            //Habitos ObjetoHabito = data[i]; 
+            if(data[i] != null && data[i].Titulo.ToLower() == BusquedaTitulo.ToLower())
+            {
+                Console.WriteLine($"La informacion de tu busqueda es: {data[i].Descripcions}"); 
+                return;
+            }
+        }  
+               Console.WriteLine("El titulo que buscas no existe"); 
+                return; 
+    }
+
+   
+    
+    public void EliminarHabitos(string EliminarHabito)
+    {
+      // bool seEncontro = false; 
+
+        for(int i=0; i<data.Length; i++)
+        {
+            if(data[i] != null && data[i].Titulo.ToLower() == EliminarHabito.ToLower())
+            {
+                data[i] = null;
+                //seEncontro = true;
+            }
+        }
+        Console.WriteLine("Escribe un nombre valido para eliminar");
+        Console.WriteLine(" ");
+    }
+
+     public void cantidadDeHabitos()
+    {   Console.Clear();
+        int tamaño = 0;
+        for (int i=0; i<data.Length; i++)
+        {
+            if (data[i] != null)
+            {
+                tamaño++;
+            }
+        }
+        Console.WriteLine($"La cantidad de habitos guardados es: {tamaño}"); 
+    }
+
+
         
 }
 

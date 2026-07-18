@@ -2,7 +2,7 @@ public class Habitos
 {
     private string TituloHabito;
     private DateOnly FechaDeCreacion;
-    private string Descripcion;
+    private string? Descripcion;
     private TimeSpan TiempoInvertido; 
     private TimeSpan TiempoMinimo;
     private bool IsRealizado; 
@@ -13,6 +13,28 @@ public class Habitos
         this.TiempoMinimo = TiempoMinimo;
         this.Descripcion = Descripcion; 
         this.FechaDeCreacion = DateOnly.FromDateTime(DateTime.Now);
+    }
+
+   /* public Habitos(string titulo)
+    {
+        this.TituloHabito = titulo;
+    }
+    */
+    
+    public string Descripcions
+    {
+        get
+        {
+            return Descripcion; 
+        }
+    }
+
+    public string Titulo
+    {
+        get
+        {
+            return TituloHabito;
+        }
     }
     public void CompletarHabito()
     {
